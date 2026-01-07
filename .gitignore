@@ -1,0 +1,25 @@
+# Build artifacts
+*.exe
+*.dll
+*.o
+*.obj
+*.pdb
+*.ilk
+
+# Runtime data / saves
+highscore.dat
+savegame.txt
+save.dat
+shutdown.wav
+*.log
+
+# Editor/OS temp files
+~$*
+*.tmp
+*.cache
+.DS_Store
+Thumbs.db
+
+# SFML debug symbols (if any)
+*.exp
+*.lib

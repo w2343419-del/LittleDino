@@ -77,10 +77,10 @@ enum GameState {
 - 音频：`sf::Music` 播放 BGM，`sf::Sound` 播放音效。
 
 ---
-## 5. 编译与运行说明
+## 5. 安装、编译与运行
 ### 5.1 环境需求
-1. C++ 编译器：支持 C++11 或更高版本（如 MinGW g++, MSVC）。
-2. SFML 库：需安装 SFML SDK（2.5.1 或 2.6.x）。
+1. C++ 编译器：支持 C++17（MinGW g++ / MSVC 均可）。
+2. SFML 库：安装 SFML SDK 2.5.1 或 2.6.x，并将 lib/bin 配置到编译/运行环境。
 
 ### 5.2 资源文件清单（需与可执行文件同目录）
 文件名 | 类型 | 描述
@@ -98,13 +98,21 @@ BirdWingDown.png | 图片 | 飞鸟翅膀下压
 bgm.ogg | 音频 | 背景音乐
 Roboto-Regular.ttf | 字体 | 游戏通用字体
 
-> 注：`shutdown.wav`、`highscore.dat` 和 `savegame.txt` 会由程序自动生成，无需预置。
+> 注：`shutdown.wav`、`highscore.dat` 和 `savegame.txt` 会在运行时自动生成或更新，无需预置。
 
-### 5.3 编译命令示例 (MinGW/G++)
-假设 SFML 安装在 `C:\SFML`：
+### 5.3 快速开始（Windows 示例）
+1. 安装 SFML（假设放在 `C:\SFML`）。
+2. 打开终端切到项目资源目录：`cd "Little Dino"`（确保生成的 exe 与资源同目录）。
+3. 编译（MinGW 示例）：
+   ```bash
+   g++ main.cpp -o LittleDino.exe -I C:\SFML\include -L C:\SFML\lib \
+     -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+   ```
+4. 运行：`./LittleDino.exe`
 
-```bash
-g++ main.cpp -o LittleDino.exe -I C:\SFML\include -L C:\SFML\lib -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
-```
+### 5.4 常见问题
+- 运行时报找不到 DLL：请将 SFML 的 bin 目录加入 PATH，或把所需 dll 放在 exe 同目录。
+- 没有声音文件：`shutdown.wav` 会在游戏启动时自动生成；BGM 需要确保 `bgm.ogg` 在同目录。
+- 存档/高分丢失：`highscore.dat`、`savegame.txt` 不再随仓库分发，运行时会自动创建；删除它们可重置记录。
 
 Little Dino 祝您游戏愉快！
