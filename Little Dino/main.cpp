@@ -384,7 +384,7 @@ int main() {
     team.push_back("Yao Wang");
     team.push_back("Solo Developer");
 
-    { std::ifstream c("shutdown.wav"); if(!c.is_open()) generateShutdownWav(); }
+    { std::ifstream c("shutdown.wav"); if(!c.is_open()) generateShutdownWav(); } // 确保 shutdown.wav 存在后再加载资源
     if (!loadAssets()) { std::cerr << "Asset Error\n"; return -1; }
 
     sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Little Dino - Final");
